@@ -68,7 +68,7 @@ app.Run();
 
 static async Task<IResult> GetAllCustomers(CustomerDb db)
 {
-    return TypedResults.Ok(await db.Customers.Select(x => new CustomerDTO(x)).ToListAsync());
+    return TypedResults.Ok(await db.Customers.Select(customer => new CustomerDTO(customer)).ToListAsync());
 }
 
 static async Task<IResult> GetAllCustomersWithSecrets(CustomerDb db)
